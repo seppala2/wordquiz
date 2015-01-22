@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.forms.models import modelform_factory
 from django.core.urlresolvers import reverse
 from django.http import JsonResponse
@@ -14,7 +14,7 @@ def index(request):
 
 def quiz(request, id):
 	if request.method == 'GET':
-		return render(request, 'quiz.html', {'wordSet': WordSet.objects.get(id=id)})
+		return render(request, 'quiz.html', {'wordSet': get_object_or_404(WordSet, id=id)})
 		
 def newQuiz(request):
 	form = WordSetForm()
