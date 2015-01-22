@@ -1,0 +1,14 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<script src="/static/newQuiz.js"></script>
+<div class="row">
+	<h3>Create a New Quiz</h3>
+</div>
+<form action='' method='post' id="wordSetForm">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value="Create Quiz" class="button-primary" />
+	<button type="button" id="switch">Switch words from left to right</button>
+</form>
+{% endblock %}

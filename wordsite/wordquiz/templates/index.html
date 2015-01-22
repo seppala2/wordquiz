@@ -1,0 +1,19 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+	<section class="header">
+		<h1 class="title">Welcome to Word Quiz!</h1>
+		<p>Isn't it boring to study words? With Word Quiz, it's still boring! However, it's easier,
+		faster to learn and you can do it anywhere where you have your smartphone or computer.</p>
+		<a class="button button-primary" href="/quiz/new/">Create new Quiz</a>
+	</section>
+	<section>
+		<h4>How does it work?</h4>
+		<p>It's really simple: A word of your desired set of words is shown in one language, and you're supposed to remember it in the other language.
+		After you try to remember the word, you can reveal the word and click "CORRECT" if you got it correct and otherwise "INCORRECT".</p>
+		<p>On correct guesses, the word won't be asked anymore. When the guess was incorrect, the word will be asked after a while,
+		but not so late that it's impossible to remember.</p>
+		<a class="button" href="/quiz/example/">Try the example</a>
+	</section>
+	
+{% endblock %}

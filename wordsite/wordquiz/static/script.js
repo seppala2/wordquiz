@@ -5,7 +5,7 @@ var globals = {
 	STATE_CLUE: 1,
 	STATE_REVEALED: 2,
 	MAX_INCORRECTS: 6,
-	blurRadius: 2.5,
+	blurRadius: 4,
 	allWords: [],
 	words: [],
 	shuffledIndices: [],
@@ -46,7 +46,7 @@ function init() {
 	var wordStr = $("#words").text();
 	var wordPairs = wordStr.split("\n");
 	$.each(wordPairs, function(index, value) {
-		var wordPair = value.split("\t");
+		var wordPair = value.split(/\t+/);
 		var temp = wordPair[0];
 		wordPair[0] = wordPair[1];
 		wordPair[1] = temp;
@@ -106,8 +106,8 @@ function nextWord() {
 		}
 	}
 		
-	$("#unknown").stop();
-	$("#unknown").css("opacity", "0");
+	$("#unknownDiv").stop();
+	$("#unknownDiv").css("opacity", "0");
 	
 	$("#score h3").text( Math.min(globals.words.length, globals.correctGuesses.length+1).toString() + " / " + globals.allWords.length.toString() );
 	if (globals.current == globals.shuffledIndices.length) {
@@ -117,8 +117,8 @@ function nextWord() {
 	globals.state = globals.STATE_NOT_REVEALED;
 	$("#afterReveal").hide();
 	$("#beforeReveal").show();
-	$("#known p").text( getWordPair()[0] );
-	$("#unknown p").text( getWordPair()[1] );
+	$("#known").text( getWordPair()[0] );
+	$("#unknown").text( getWordPair()[1] );
 }
 
 function isRevealed() {
@@ -134,7 +134,7 @@ function reveal() {
 		if (!isClue()) {
 			$("#beforeReveal").hide();
 			$("#afterReveal").show();
-			$("#unknown").fadeTo(1000, 1);
+			$("#unknownDiv").fadeTo(1000, 1);
 		} else {
 			$("#beforeReveal").hide();
 			$("#afterReveal").show();
@@ -143,7 +143,7 @@ function reveal() {
 				easing: 'swing', // or "linear"
 								 // use jQuery UI or Easing plugin for more options
 				step: function() {
-					$('#unknown').css({
+					$('#unknownDiv').css({
 						"-webkit-filter": "blur("+this.blurRadius+"px)",
 						"filter": "blur("+this.blurRadius+"px)"
 					});
@@ -155,7 +155,7 @@ function reveal() {
 }
 
 function clue() {
-	var unknown = $("#unknown");
+	var unknown = $("#unknownDiv");
 	var blur = globals.blurRadius.toString() + "px";
 	unknown.css({'filter': 'blur('+blur+')','-webkit-filter': 'blur('+blur+')','-moz-filter': 'blur('+blur+')','-o-filter': 'blur('+blur+')','-ms-filter': 'blur('+blur+')'});
 	unknown.fadeTo(1000, 1);

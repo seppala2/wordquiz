@@ -1,0 +1,87 @@
+.container {
+
+}
+
+.word {
+	padding: 2%;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: center;
+	font-size: 2rem;
+}
+
+#knownDiv {
+	background-color: #65AAAA;
+	color: #FFFFFF;
+}
+
+#unknownDiv {
+	background-color: #4AB825;
+	color: #FFFFFF;
+}
+
+#buttons button {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#score {
+	text-align: center;
+}
+
+#id_wordSet {
+	height: 100%;
+}
+
+#wordSetForm {
+	height: 100%;
+}
+
+#wordSetForm span.helptext {
+	display: block;
+	margin-bottom: 10px;
+}
+
+a#home {
+	float: right;
+	margin: 1%;
+	border-style: none;
+	border-radius: 10px;
+	height: 60px;
+	width: 50px;
+
+	background: url("/static/home.png") no-repeat top left;
+
+	background-size: cover;
+}
+
+
+#feedback {
+	padding: 1%;
+	margin-bottom: 1%;
+	background-color: #EEEEFF;
+}
+
+a#home:hover {
+	background-color: #EEEEFF;
+}
+
+div.content {
+	clear: both;
+}
+
+.header {
+	text-align: center;
+}
+
+section {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+section:last-child {
+	border-bottom: 0px;
+}

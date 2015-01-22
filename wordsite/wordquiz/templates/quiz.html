@@ -1,0 +1,40 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<script src="/static/script.js"></script>
+<div id="score" class="row">
+	<h3></h3>
+</div>
+<div id="knownDiv" class="row word">
+	<span id="known"></span>
+</div>
+<div id="unknownDiv" class="row word">
+	<span id="unknown"></span>
+</div>
+<div id="buttons" class="row">
+	<div id="beforeReveal" style="display: none;">
+		<button type="button" id="reveal">Reveal</button>
+		<button type="button" id="clue">Clue</button>
+	</div>
+	<div id="afterReveal" style="display: none;">
+		<button type="button" id="correct" style="color: green;">Correct</button>
+		<button type="button" id="incorrect" style="color: red;">Incorrect</button>
+	</div>
+</div>
+<div id="hidden" style="display: none;">
+	<span id="words">{% if wordSet %}
+			{{ wordSet.wordSet }}
+		{% else %}我	I, me
+您	you (formal)
+你	you (informal)
+他/她/它	(s)he, him, her
+我們		we, us (exclusive)
+咱們		we, us (inclusive)
+你們		you (plural)
+他們/她們/它們	they, them
+这个/這個	this
+这些/這些	these
+那个/那個	that
+那些		those{% endif %}</span>
+</div>
+{% endblock %}
